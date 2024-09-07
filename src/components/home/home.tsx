@@ -17,11 +17,13 @@ import {
   Select,
   FormHelperText,
 } from "@mui/material";
+import { useMediaQueries } from "../../hooks/useMediaQueries";
 
 const Home = () => {
   // State
   const [tableData, setTableData] = useState<any | null>([]);
   const [tableName, setTableName] = useState<any | null>("");
+  const { isMobile } = useMediaQueries();
 
   // Form state
   const schema = yupValidation();
@@ -73,11 +75,16 @@ const Home = () => {
       </Box>
 
       {/* Header */}
-      <Typography align="center" variant="h2" gutterBottom>
+      <Typography
+        mt={2}
+        align="center"
+        variant={isMobile ? "h4" : "h2"}
+        gutterBottom
+      >
         Sequelize Migration Generator
       </Typography>
 
-      <Box mt={-2}>
+      <Box mt={-2} p={1}>
         <Typewriter text="Convenient UI tool to generate Sequelize migration code to create new tables in your database." />
       </Box>
 
@@ -346,7 +353,7 @@ const Home = () => {
       >
         <Typography
           fontFamily={"LilitaOne"}
-          fontSize={"20px"}
+          fontSize={isMobile ? "18px" : "20px"}
           letterSpacing={"1px"}
           // fontWeight={600}
         >
