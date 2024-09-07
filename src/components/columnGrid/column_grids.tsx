@@ -1,12 +1,5 @@
-import React, { useState } from "react";
-import {
-  Grid,
-  IconButton,
-  Typography,
-  Box,
-  Paper,
-  Divider,
-} from "@mui/material";
+import { useState } from "react";
+import { Grid, IconButton, Typography, Box, Paper } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close"; // Import the close icon
 
 const Columns = ({ initialData }: any) => {
@@ -18,7 +11,13 @@ const Columns = ({ initialData }: any) => {
   };
 
   return (
-    <Grid container spacing={0.3} justifyContent="center" wrap="nowrap">
+    <Grid
+      container
+      spacing={0.3}
+      justifyContent="center"
+      wrap="nowrap"
+      direction={{ xs: "column", sm: "row" }}
+    >
       {data.map((col: any, index: number) => (
         <Grid item key={index}>
           <Paper
